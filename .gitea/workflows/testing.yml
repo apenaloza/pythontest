@@ -1,4 +1,4 @@
-name: Pruebas de Python
+name: Pruebas de Python (Instalación Manual)
 
 on: [push, pull_request]
 
@@ -9,13 +9,21 @@ jobs:
       - name: Checkout del código
         uses: actions/checkout@v2
 
-      - name: Configurar Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.10'
+      - name: Instalar Python 3.10
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3.10 python3-pip
+          # Nos aseguramos de que 'python' y 'pip' usen la versión 3.10
+          sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
+          sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip 1
 
-      - name: Instalar dependencias
-        run: pip install -r requerimientos.txt
+      - name: Verificar versiones
+        run: |
+          python --version
+          pip --version
+
+      - name: Instalar dependencias con pip
+        run: pip install -r requirements.txt
 
       - name: Ejecutar pruebas con pytest
         run: pytest
