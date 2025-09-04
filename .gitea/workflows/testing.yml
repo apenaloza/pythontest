@@ -12,7 +12,7 @@ jobs:
       - name: Configurar Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.12'
+          python-version: '3.12.3'
 
       - name: Instalar dependencias
         run: pip install -r requerimientos.txt
