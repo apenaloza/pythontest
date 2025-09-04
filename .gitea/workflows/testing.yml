@@ -1,4 +1,4 @@
-name: Pruebas de python
+name: Pruebas de Python
 
 on: [push, pull_request]
 
@@ -6,13 +6,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout del codigo
-        uses: action/checkout@vs
-      - name: Configurar python
+      - name: Checkout del código
+        uses: actions/checkout@v2
+
+      - name: Configurar Python
         uses: actions/setup-python@v2
         with:
-          python-version '3'
+          python-version: '3.x'
+
       - name: Instalar dependencias
         run: pip install -r requerimientos.txt
-      - name: ejecutar pruebas con pytest
+
+      - name: Ejecutar pruebas con pytest
         run: pytest
