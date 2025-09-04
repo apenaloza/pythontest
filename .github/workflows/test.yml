@@ -23,4 +23,4 @@ jobs:
         run: pip install -r requerimientos.txt
 
       - name: Ejecutar pruebas con pytest
-        run: pytest%    
+        run: pytest    
