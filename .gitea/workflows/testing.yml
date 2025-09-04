@@ -1,4 +1,4 @@
-name: Pruebas de Python (Instalación Manual)
+name: Pruebas de Python (Versión Final)
 
 on: [push, pull_request]
 
@@ -9,12 +9,13 @@ jobs:
       - name: Checkout del código
         uses: actions/checkout@v2
 
-      - name: Instalar Python 3.10
+      - name: Instalar Python 3.10 y Pip
         run: |
           apt-get update
-          apt-get install -y python3 python3-pip
-          update-alternatives --install /usr/bin/python python /usr/bin/python3
-          update-alternatives --install /usr/bin/pip pip /usr/bin/pip 1
+          apt-get install -y python3.10 python3-pip
+          # CORRECCIÓN: Usamos la sintaxis completa y correcta para crear los enlaces simbólicos
+          update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
+          update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
 
       - name: Verificar versiones
         run: |
