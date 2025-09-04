@@ -20,7 +20,7 @@ jobs:
           pip --version
 
       - name: Instalar dependencias con pip
-        run: pip install -r requirements.txt
+        run: pip install -r requerimientos.txt
 
       - name: Ejecutar pruebas con pytest
         run: pytest%    
