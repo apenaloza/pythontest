@@ -6,13 +6,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      -name: Checkout del codigo
-      uses: action/checkout@vs
-      -name: Configurar python
-      uses: actions/setup-python@v2
-      with:
+      - name: Checkout del codigo
+        uses: action/checkout@vs
+      - name: Configurar python
+        uses: actions/setup-python@v2
+        with:
         python-version '3.x'
-      -name: Instalar dependencias
-      run: pip install -r requerimientos.txt
-      -name: ejecutar pruebas con pytest
-      run: pytest
+      - name: Instalar dependencias
+        run: pip install -r requerimientos.txt
+      - name: ejecutar pruebas con pytest
+        run: pytest
