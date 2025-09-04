@@ -13,9 +13,6 @@ jobs:
         run: |
           apt-get update
           apt-get install -y python3.10 python3-pip
-          # CORRECCIÓN: Usamos la sintaxis completa y correcta para crear los enlaces simbólicos
-          update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
-          update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
 
       - name: Verificar versiones
         run: |
